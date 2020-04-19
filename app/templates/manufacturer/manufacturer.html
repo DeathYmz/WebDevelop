@@ -1,0 +1,446 @@
+<!doctype html>
+<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="{{url_for('static', filename='js/jquery-2.1.0.js')}}"></script>
+	<title>商业区块链系统--生产商信息列表</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap {
+			height: 719px;
+			width: 100%;
+			-moz-opacity: 0.8;
+			opacity: 0.8;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+		}
+
+		#head {
+			height: 60px;
+			width: 100%;
+			background-color: #CC9933;
+			text-align: center;
+			position: relative;
+		}
+
+		#foot {
+			width: 100;
+			height: 126px;
+			background-color: #CC9933;
+			position: relative;
+		}
+
+		#wrap .logGet {
+			height: 1500px;
+			width: 95%;
+			position: absolute;
+			top: 5%;
+			left: 2%;
+		}
+
+		.logC a button {
+			width: 100%;
+			height: 45px;
+			background-color: #ee7700;
+			border: none;
+			color: white;
+			font-size: 18px;
+		}
+
+		.logGet .logD.logDtip .p1 {
+			display: inline-block;
+			font-size: 28px;
+			margin-top: 30px;
+			width: 96%;
+		}
+
+		#wrap .logGet .logD.logDtip {
+			width: 100%;
+			border-bottom: 1px solid #ee7700;
+			margin-bottom: 60px;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.logGet .lgD img {
+			position: absolute;
+			top: 12px;
+			left: 8px;
+		}
+
+		.logGet .lgD input {
+			width: 100%;
+			height: 42px;
+			text-indent: 2.5rem;
+		}
+
+		#wrap .logGet .lgD {
+			width: 200px;
+			position: absolute;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			margin-right: 400px;
+			margin-left: 20px;
+		}
+
+		#wrap .logGet .logC {
+			width: 86%;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-bottom: 0px;
+			margin-left: auto;
+		}
+
+		.button {
+			background-color: #CC9933;
+			border: none;
+			border-radius: 4px;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			left: 50%;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.title {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 30px;
+			height: 40px;
+			width: 30%;
+		}
+
+		.copyright {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			height: 60px;
+			width: 40%;
+			text-align: center;
+		}
+
+
+		#foot .copyright .img {
+			width: 100%;
+			height: 24px;
+			position: relative;
+		}
+
+		.copyright .img .icon {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon1 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon2 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		#foot .copyright p {
+			height: 24px;
+			width: 100%;
+		}
+
+		.rightshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 92%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+
+		.leftshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 86%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+
+		.form {
+			display: none;
+		}
+
+		.td {
+			width: 200px;
+			align-content: center;
+			/* text-align: center; */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header" id="head">
+		<div class="title">商业区块链系统—商品信息列表 </div>
+		<div style="float:right">
+			<input style="padding-left:10px;background-color:transparent" readonly="readonly" height="30px " width="5px"
+				value="{{status}}" />
+			<input style="border:0px;background-color:transparent" readonly="readonly" height="30px " width="8px"
+				value="{{email}}" />
+			<button onclick="logoutFunction()" type="button" class="button">注销</button>
+		</div>
+	</div>
+
+	<div class="wrap" id="wrap">
+		<img src="{{url_for('static', filename='img/background.png')}}" width="100%" height="100%" alt="" />
+		<div class="logGet">
+			<!-- 头部提示信息 -->
+
+			<div style="width: 100%;">
+				<button class="button" style="width: 86%;" disabled>商品信息列表</button>
+				<div style="float:right">
+					<button class="button" id="newbtn"><a href="manufacturer_add_new" target="_self">新增</a></button>
+					<button class="button" type="button">查询</button>
+				</div>
+			</div>
+
+			<form method="post" id="searchForm">
+				<div>
+					<!-- <button class="button" id="joinbtn" type="submit">加入区块链</button> -->
+					<table border="1" height="200" width="1200" id="manutable_1" cellspacing="0" align="center">
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$.ajax({
+			url: "/manufacturer_list",
+			type: 'get',
+			async: true,
+			data: null,
+			dataType: 'json',
+			contentType: "application/json;charset=utf-8",
+			success: function (data) {
+				var s = '';
+				for (var i = 0; i < data.length; i++) {
+
+					if (data[i]["commodity_status"] == 0) {
+						s += '<tr><td class="td">货号</td><td class="td">' + data[i]["item_num"] + '</td><td class="td">货品名称</td><td class="td">' + data[i]["trade_name"];
+						s += '</td><td style="border-right-style:none" rowspan="2"><input class="button" style="width:150px;border=0px" value="编辑" onclick="edit_goods_function()" id="' + data[i]["item_num"] + '"/>' + '</td>'
+						s +='<td rowspan="2"><input class="button" value="删除" style="width:150px;border=0px"  onclick="delete_goods_function()" id="' + data[i]["item_num"] + '"/>' + '</td></tr>';
+						s += '<tr><td>商品属性</td><td>' + data[i]["attribute"] + '</td><td>生产日期</td><td>' + data[i]["production_data"] + '</td></tr>';
+
+						s += '<tr><td>商品数量</td><td>' + data[i]["number"] + '</td><td>商品价格</td><td>' + data[i]["trade_price"];
+						s += '</td><td colspan="2" rowspan="2"><input class="button" value="加入区块链" readonly="readonly" onclick="add_blockchain_function()" id="' + data[i]["item_num"] + '"/>' + '</td></tr>';
+						s += '<tr><td>商品状态</td><td>' + data[i]["commodity_status"] + '</td><td>保质期</td>><td>' + data[i]["expiration_data"] + '</td></tr>';
+					} else {
+						s += '<tr><td class="td">货号</td><td class="td">' + data[i]["item_num"] + '</td><td class="td">货品名称</td><td class="td">' + data[i]["trade_name"];
+						s += '</td><td style="border-right-style:none" rowspan="2"><button class="button" style="width:150px;border=0px;background-color: darkgray;" disabled>编辑</button></td><td rowspan="2"><button class="button" style="width:150px;border=0px;background-color: darkgray;" disabled>删除</button></td></tr>';
+						s += '<tr><td>商品属性</td><td>' + data[i]["attribute"] + '</td><td>生产日期</td><td>' + data[i]["production_data"] + '</td></tr>';
+
+						s += '<tr><td>商品数量</td><td>' + data[i]["number"] + '</td><td>商品价格</td><td>' + data[i]["trade_price"];
+						s += '</td><td colspan="2" rowspan="2"><input class="button" value="已加入区块链" readonly="readonly" onclick="show_block_function()" id="' + data[i]["item_num"] + '"/>' + '</td></tr>';
+						s += '<tr><td>商品状态</td><td>' + data[i]["commodity_status"] + '</td><td>保质期</td>><td>' + data[i]["expiration_data"] + '</td></tr>';
+
+					}
+
+				}
+				$('#manutable_1').append(s);
+			},
+			error: function (XMLHttpRequest, textStatus, error) {
+				alert(error);
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		function logoutFunction() {
+			$.ajax({
+				type: "POST",
+				url: "/logout",
+				dataType: "json",
+				success: function (msg) {
+					alert("确定退出登录？")
+					if (msg["success"] == 0) {
+						window.location.href = "/login";
+					} else {
+						alert("退出登录失败，请重试!");
+					}
+				},
+				error: function () {
+					alert("ajax发送失败");
+				}
+			});
+		};
+		function add_blockchain_function() {
+			alert("商品加入区块链")
+			var item_num = event.target.id;
+			var data = [];
+			var item = new Object();
+			item.item_num = item_num;
+			data.push(item);
+			data = JSON.stringify(data);
+			$.ajax({
+				type: "POST",
+				url: "/manufacturer",
+				data: data,
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				success: function (msg) {
+					if (msg["success"] == 0) {
+						window.location.href = "/manufacturer_add_blockchain";
+					} else {
+						alert("信息获取失败请重试!");
+					}
+				},
+				error: function () {
+					alert("数据传输失败");
+				}
+			});
+
+		};
+		function show_block_function() {
+			var item_num = event.target.id;
+			var data = [];
+			var item = new Object();
+			item.item_num = item_num;
+			data.push(item);
+			data = JSON.stringify(data);
+			$.ajax({
+				type: "POST",
+				url: "/manufacturer_showblock",
+				data: data,
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				success: function (msg) {
+					if (msg["success"] == 0) {
+						window.location.href = "/manufacturer_showblock";
+					} else {
+						alert("信息获取失败请重试!");
+					}
+				},
+				error: function () {
+					alert("数据传输失败");
+				}
+			});
+
+		};
+		function delete_goods_function() {
+			alert("确认要删除商品")
+			var item_num = event.target.id;
+			var data = [];
+			var item = new Object();
+			item.item_num = item_num;
+			data.push(item);
+			data = JSON.stringify(data);
+			$.ajax({
+				type: "POST",
+				url: "/manufacturer_delete_goods",
+				data: data,
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				success: function (msg) {
+					if (msg["success"] == 0) {
+						alert("删除商品成功")
+						window.location.href = "/manufacturer";
+
+					} else {
+						alert("信息获取失败请重试!");
+					}
+				},
+				error: function () {
+					alert("数据传输失败");
+				}
+			});
+		}
+		function edit_goods_function() {
+			var item_num = event.target.id;
+			var data = [];
+			var item = new Object();
+			item.item_num = item_num;
+			data.push(item);
+			data = JSON.stringify(data);
+			$.ajax({
+				type: "POST",
+				url: "/manufacturer_edit_goods",
+				data: data,
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				success: function (msg) {
+					if (msg["success"] == 0) {
+						window.location.href = "/manufacturer_edit_goods";
+
+					} else {
+						alert("信息获取失败请重试!");
+					}
+				},
+				error: function () {
+					alert("数据传输失败");
+				}
+			});
+		}
+	</script>
+
+	<div class="footer" id="foot">
+		<div class="copyright">
+			<p>Copyright ? 2018 Qunar.com Inc. All Rights Reserved.</p>
+			<div class="img">
+				<i class="icon"></i><span>联系邮箱：6076076q07@163.com</span>
+			</div>
+
+			<div class="img">
+				<i class="icon1"></i><span>联系地址：太原理工大学</span>
+			</div>
+
+			<div class="img">
+				<i class="icon2"></i><span>联系电话：1234567890</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

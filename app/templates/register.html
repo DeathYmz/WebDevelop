@@ -1,0 +1,286 @@
+﻿<!doctype html>
+ <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+   
+<title>register</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrap {
+	height: 719px;
+	width: 100;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+#head {
+	height: 120px;
+	width: 100;
+	background-color: #CC9933;
+	text-align: center;
+	position: relative;
+}
+#foot {
+	width: 100;
+	height: 126px;
+	background-color: #CC9933;
+	position: relative;
+}
+#wrap .logGet {
+	height: 550px;
+	width: 368px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 20%;
+	right: 15%;
+}
+.logC a button {
+	width: 100%;
+	height: 45px;
+	background-color: #ee7700;
+	border: none;
+	color: white;
+	font-size: 18px;
+}
+.logGet .logD.logDtip .p1 {
+	display: inline-block;
+	font-size: 28px;
+	margin-top: 30px;
+	width: 86%;
+}
+#wrap .logGet .logD.logDtip {
+	width: 86%;
+	border-bottom: 1px solid #ee7700;
+	margin-bottom: 60px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.logGet .lgD img {
+	position: absolute;
+	top: 12px;
+	left: 8px;
+}
+.logGet .lgD input {
+	width: 100%;
+	height: 42px;
+	text-indent: 2.5rem;
+}
+.logGet .lgD select {
+	width: 100%;
+	height: 42px;
+	padding-left: 2.5rem;
+}
+#wrap .logGet .lgD {
+	width: 86%;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#wrap .logGet .logC {
+	width: 86%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+ 
+ 
+.title {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	font-size: 36px;
+	height: 40px;
+	width: 30%;
+}
+ 
+.copyright {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	height: 60px;
+	width: 40%;
+	text-align:center;
+}
+	
+ 
+#foot .copyright .img {
+	width: 100%;
+	height: 24px;
+	position: relative;
+}
+.copyright .img .icon {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-left: 22px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+	
+.copyright .img .icon1 {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-left: 22px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.copyright .img .icon2 {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-left: 22px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+#foot .copyright p {
+	height: 24px;
+	width: 100%;
+}
+.button {
+    background-color: #CC9933;
+    border: none;
+    border-radius:2px;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    left:50%;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+ 
+<body>
+<div class="header" id="head">
+  <div class="title">商业区块链系统</div>
+	
+</div>
+<form action="register" method="POST">	
+<div class="wrap" id="wrap">
+	<img src="{{url_for('static', filename='img/background.png')}}" width="100%" height="100%">
+	<div class="logGet">
+		<!-- 头部提示信息 -->
+		<div class="logD logDtip">
+			<p class="p1">注册</p>
+		</div>
+		<!-- 输入框 -->
+		<div class="lgD">
+			<img src="{{url_for('static', filename='img/add_account.png')}}" width="20" height="20" alt=""/>
+			<input type="text" id="username" name="username" placeholder="输入用户名" />
+		</div>
+    	<div class="lgD">
+			<img src="{{url_for('static',filename='img/email_fill.png')}}" width="20" height="20" alt=""/>
+			<input type="email" id="email" name="email" placeholder="输入邮箱" />
+		</div>
+		<div class="lgD">
+			<img src="{{url_for('static',filename='img/logPwd.png')}}" width="20" height="20" alt=""/>
+			<input type="password" id="password" name="password" placeholder="输入用户密码" />
+		</div>
+    	<div class="lgD">
+			<img src="{{url_for('static',filename='img/contacts.png')}}" width="20" height="20" alt=""/>
+			<input type="text" id="telephone" name="telephone" placeholder="输入电话号码" />
+		</div>
+       	<div class="lgD">
+			<img src="{{url_for('static',filename='img/discount.png')}}" width="20" height="20" alt=""/>
+			<select id="status" name='status'>
+				<option value="1">生产商</option>
+				<option value="2">运输商</option>
+				<option value="3">仓库管理员</option>
+				<option value="4">经销商</option>
+				<option value="5">客户</option>
+			</select>
+       	</div>
+		<div class="logC">
+			<script src="{{url_for('static', filename='js/jquery-2.1.0.js')}}"></script>
+			<button class="button" onclick="registerFunction()" type="button" >注册</button>
+		</div>
+	</div>
+</div>
+</form>
+
+<script type="text/javascript">
+    function registerFunction(){
+		var username = document.getElementById("username").value;
+    	var email=document.getElementById("email").value;
+		var password=document.getElementById("password").value;
+		var telephone=document.getElementById("telephone").value
+    	var status=document.getElementById("status").value;
+        if(email == ""){
+            alert("请输入邮箱");
+            return false;
+        }else if(password == ""){
+            alert("请输入密码");
+            return false;
+        }
+        //ajax去服务器端校验
+        var data= [];
+		var person1 = new Object();
+		person1.username=username;
+		person1.email=email;
+		person1.password=password;
+		person1.telephone=telephone;
+		person1.status=status;
+		
+		data.push(person1);
+		data = JSON.stringify(data)
+        $.ajax({
+            type:"POST",
+            url:"/register",
+            data: data,
+            dataType:"json",
+			contentType:"application/json;charset=utf-8",
+            success:function(msg){
+				if (msg["register"]== 0) {
+					alert("注册成功")
+					window.location.href = "/login";
+                }else{
+                    alert("注册失败，请重试!");
+                    }
+                },
+            error:function(){
+                alert("ajax发送失败");
+            }
+        });
+};
+</script>
+<div class="footer" id="foot">
+  <div class="copyright">
+    <p>Copyright ? 2018 Qunar.com Inc. All  Reserved.</p>
+    <div class="img">
+		<i class="icon"></i><span>联系邮箱：607607607@163.com</span>
+	</div>
+	
+	<div class="img">
+		<i class="icon1"></i><span>联系地址：太原理工大学</span>
+	</div>
+	  
+	<div class="img">
+	  <i class="icon2"></i><span>联系电话：1234567890</span>
+	</div>
+  </div>	
+</div>	
+</body>
+</html>

@@ -1,0 +1,341 @@
+﻿<!doctype html>
+<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+	<title>商业区块链系统--生产商信息列表</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap {
+			height: 719px;
+			width: 100;
+			background-image: url({{background}});
+			;
+			-moz-opacity: 0.8;
+			opacity: 0.8;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+		}
+
+		#head {
+			height: 60px;
+			width: 100%;
+			background-color: #CC9933;
+			text-align: center;
+			position: relative;
+		}
+
+		#foot {
+			width: 100;
+			height: 126px;
+			background-color: #CC9933;
+			position: relative;
+		}
+
+		#wrap .logGet {
+			height: 1500px;
+			width: 1500px;
+			position: absolute;
+			top: 5%;
+			left: 2%;
+		}
+
+		.logC a button {
+			width: 100%;
+			height: 45px;
+			background-color: #ee7700;
+			border: none;
+			color: white;
+			font-size: 18px;
+		}
+
+		.logGet .logD.logDtip .p1 {
+			display: inline-block;
+			font-size: 28px;
+			margin-top: 30px;
+			width: 96%;
+		}
+
+		#wrap .logGet .logD.logDtip {
+			width: 86%;
+			border-bottom: 1px solid #ee7700;
+			margin-bottom: 60px;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.logGet .lgD img {
+			position: absolute;
+			top: 12px;
+			left: 8px;
+		}
+
+		.logGet .lgD input {
+			width: 100%;
+			height: 42px;
+			text-indent: 2.5rem;
+		}
+
+		#wrap .logGet .lgD {
+			width: 200px;
+			position: absolute;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			margin-right: 400px;
+			margin-left: 20px;
+		}
+
+		#wrap .logGet .logC {
+			width: 86%;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-bottom: 0px;
+			margin-left: auto;
+		}
+
+		.button {
+			background-color: #CC9933;
+			border: none;
+			border-radius: 4px;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			left: 50%;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.title {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 30px;
+			height: 40px;
+			width: 30%;
+		}
+
+		.copyright {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			height: 60px;
+			width: 40%;
+			text-align: center;
+		}
+
+
+		#foot .copyright .img {
+			width: 100%;
+			height: 24px;
+			position: relative;
+		}
+
+		.copyright .img .icon {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon1 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon2 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		#foot .copyright p {
+			height: 24px;
+			width: 100%;
+		}
+
+		.rightshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 92%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+
+		.leftshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 86%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header" id="head">
+		<div class="title">商品区块链系统-加入区块链</div>
+		<div style="float:right">
+			<input style="padding-left:10px;background-color:transparent" readonly="readonly" height="30px " width="5px" value="{{status}}" />
+			<input style="border:0px;background-color:transparent" readonly="readonly" height="30px " width="8px" value="{{email}}" />
+			<script src="{{url_for('static', filename='js/jquery-2.1.0.js')}}"></script>
+			<button onclick="logoutFunction()" type="button" class="button">注销</button>
+		</div>
+	</div>
+
+	<div class="wrap" id="wrap">
+		<img src="{{url_for('static', filename='img/background.png')}}" width="100%" height="100%" alt="" />
+		<div class="logGet">
+			<div class="logD logDtip">
+				<p class="p1">加入区块链</p>
+			</div>
+			<form action="url" method="post" name="add_blockchain_Form">
+				<table border="1" height="100" width="1400" id="manutable" cellspacing="0" align="center">
+					<tr align="center">
+						<td width="300px">货号</td>
+						<td><input style="border: 0px;background-color:transparent;width:100%;text-align: center;" readonly="readonly" id="item_num" value="{{item_num}}"/></td>
+						<td width="300px">仓库邮箱</td>
+						<td align="center"><select id='warehouse_email' name='status' style="border: 0px;background-color:transparent;width:100%;text-align: center"></select></td>
+					</tr>
+					<tr align="center">
+						<td width="300px">生产商邮箱</td>
+						<td><input style="border: 0px;background-color:transparent;width:100%;text-align: center" readonly="readonly" id="manufacturer_email" value="{{email}}"/></td>
+						<td width="300px">订单状态</td>
+						<td><input style="border: 0px;background-color:transparent;width:100%;text-align: center" readonly="readonly" id="order_state" value="0"/></td>
+					</tr>
+
+				</table>
+				<script src="{{url_for('static', filename='js/jquery-2.1.0.js')}}"></script>
+				<button onclick="add_blockchainFunction()" class="button" type="button">提交</button>"
+			</form>
+			<script type="text/javascript">
+				$.ajax({
+					url: "/manufacturer_select_warehouse_email",
+					type: 'get',
+					async: true,
+					data: null,
+					dataType: 'json',
+					contentType: "application/json;charset=utf-8",
+					success: function (data) {
+						var s = '';
+						for (var i = 0; i < data.length; i++){
+							s += '<option style="border: 0px;background-color:transparent;width:100%;text-align: center">'+data[i]["email"]+'</option>'
+						}
+						$('#warehouse_email').append(s);
+					},
+					error: function (XMLHttpRequest, textStatus, error) {
+						alert(error);
+					}
+				});
+			</script>
+			<script type="text/javascript">
+				function add_blockchainFunction() {
+					var item_num = document.getElementById("item_num").value;
+					var warehouse_email = document.getElementById("warehouse_email").value;
+					var manufacturer_email = document.getElementById("manufacturer_email").value;
+					var order_state = document.getElementById("order_state").value;
+					if (item_num == "") {
+						alert("请输入货号");
+						return false;
+					} else if (warehouse_email == "") {
+						alert("请输入仓库邮箱");
+						return false;
+					} else if (manufacturer_email == "") {
+						alert("请输入生产商邮箱");
+						return false;
+					} else if (order_state == "") {
+						alert("请输入订单状态");
+						return false;
+					}
+					var data = [];
+					var order = new Object();
+					order.item_num = item_num;
+					order.warehouse_email = warehouse_email;
+					order.manufacturer_email = manufacturer_email;
+					order.order_state = order_state
+					data.push(order);
+					data = JSON.stringify(data)
+					$.ajax({
+						type: "POST",
+						url: "/manufacturer_add_blockchain",
+						data: data,
+						dataType: "json",
+						contentType: "application/json;charset=utf-8",
+						success: function (msg) {
+							if (msg["success"] == 0) {
+								alert("加入成功！");
+								window.location.href="/manufacturer"
+							} else {
+								alert("无法加入区块链，请重试!");
+							}
+						},
+						error: function () {
+							alert("ajax发送失败");
+						}
+					});
+				};
+			</script>
+		</div>
+	</div>
+	<div class="footer" id="foot">
+		<div class="copyright">
+			<p>Copyright ? 2018 Qunar.com Inc. All Rights Reserved.</p>
+			<div class="img">
+				<i class="icon"></i><span>联系邮箱：607607607@163.com</span>
+			</div>
+
+			<div class="img">
+				<i class="icon1"></i><span>联系地址：太原理工大学</span>
+			</div>
+
+			<div class="img">
+				<i class="icon2"></i><span>联系电话：1234567890</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

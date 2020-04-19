@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+	<title>商业区块链系统--生产商信息列表</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap {
+			height: 719px;
+			width: 100;
+			-moz-opacity: 0.8;
+			opacity: 0.8;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+		}
+
+		#head {
+			height: 60px;
+			width: 100%;
+			background-color: #CC9933;
+			text-align: center;
+			position: relative;
+		}
+
+		#foot {
+			width: 100;
+			height: 126px;
+			background-color: #CC9933;
+			position: relative;
+		}
+
+		#wrap .logGet {
+			height: 1500px;
+			width: 1500px;
+			position: absolute;
+			top: 5%;
+			left: 2%;
+		}
+
+		.logC a button {
+			width: 100%;
+			height: 45px;
+			background-color: #ee7700;
+			border: none;
+			color: white;
+			font-size: 18px;
+		}
+
+		.logGet .logD.logDtip .p1 {
+			display: inline-block;
+			font-size: 28px;
+			margin-top: 30px;
+			width: 96%;
+		}
+
+		#wrap .logGet .logD.logDtip {
+			width: 86%;
+			border-bottom: 1px solid #ee7700;
+			margin-bottom: 60px;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.logGet .lgD img {
+			position: absolute;
+			top: 12px;
+			left: 8px;
+		}
+
+		.logGet .lgD input {
+			width: 100%;
+			height: 42px;
+			text-indent: 2.5rem;
+		}
+
+		#wrap .logGet .lgD {
+			width: 200px;
+			position: absolute;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			margin-right: 400px;
+			margin-left: 20px;
+		}
+
+		#wrap .logGet .logC {
+			width: 86%;
+			margin-top: 0px;
+			margin-right: auto;
+			margin-bottom: 0px;
+			margin-left: auto;
+		}
+
+		.button {
+			background-color: #CC9933;
+			border: none;
+			border-radius: 4px;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			left: 50%;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.title {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 30px;
+			height: 40px;
+			width: 30%;
+		}
+
+		.copyright {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			height: 60px;
+			width: 40%;
+			text-align: center;
+		}
+
+
+		#foot .copyright .img {
+			width: 100%;
+			height: 24px;
+			position: relative;
+		}
+
+		.copyright .img .icon {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon1 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		.copyright .img .icon2 {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: 22px;
+			vertical-align: middle;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		#foot .copyright p {
+			height: 24px;
+			width: 100%;
+		}
+
+		.rightshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 92%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+
+		.leftshow {
+			font-family: "黑体";
+			color: #FFFFFF;
+			position: absolute;
+			top: 50%;
+			left: 86%;
+			transform: translate(-50%, -50%);
+			/* 使用css3的transform来实现 */
+			font-size: 20px;
+			height: 20px;
+			width: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header" id="head">
+		<div class="title">商业区块链系统-新增商品</div>
+		<div style="float:right">
+			<input style="padding-left:10px;background-color:transparent" readonly="readonly" height="30px " width="5px" value="{{status}}" />
+			<input style="border:0px;background-color:transparent" readonly="readonly" height="30px " width="8px" value="{{email}}" />
+			<script src="{{url_for('static', filename='js/jquery-2.1.0.js')}}"></script>
+			<button onclick="logoutFunction()" type="button" class="button">注销</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function logoutFunction() {
+			$.ajax({
+				type: "POST",
+				url: "/logout",
+				dataType: "json",
+				success: function (msg) {
+					alert("确定退出登录？")
+					if (msg["success"] == 0) {
+						window.location.href = "/login";
+					} else {
+						alert("退出登录失败，请重试!");
+					}
+				},
+				error: function () {
+					alert("ajax发送失败");
+				}
+			});
+		};
+	</script>
+	<div class="wrap" id="wrap">
+		<img src="{{url_for('static', filename='img/background.png')}}" width="100%" height="100%" alt="" />
+		<div class="logGet">
+			<!-- 头部提示信息 -->
+			<div class="logD logDtip">
+				<p class="p1">商品信息修改</p>
+			</div>
+			<!-- 输入框 -->
+			<form method="post">
+				<table border="1" height="100px" width="1500px" id="manutable" cellspacing="0" align="center">
+					<thead>
+						<tr align="center">
+							<td>商品货号</td>
+							<td>商品名称</td>
+							<td>商品属性</td>
+							<td>生产日期</td>
+							<td>商品数量</td>
+							<td>商品价格</td>
+							<td>商品状态</td>
+							<td>生产厂家</td>
+							<td>生产地址</td>
+							<td>厂家邮箱</td>
+							<td>保质期</td>
+						</tr>
+						<tr align="center">
+							<td><input  style="border: 0px;background-color:transparent;width:100%" id="item_num" readonly="readonly" value="{{item_num}}"/></td>
+							<td><input  style="border: 0px;background-color:transparent;width:100%" id="trade_name" value="{{trade_name}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="attribute" value="{{attribute}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="production_data" type="date" value="{{production_data}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="number" value="{{number}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="trade_price" value="{{trade_price}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="commodity_status" readonly="readonly" value="{{commodity_status}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="manufacturer" value="{{manufacturer}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="production_address" value="{{production_address}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="manufacturer_email" readonly="readonly" value="{{manufacturer_email}}"/></td>
+							<td><input style="border: 0px;background-color:transparent;width:100%" id="expiration_data" value="{{expiration_data}}"/></td>
+						</tr>
+					</thead>
+				</table>
+				<button onclick="save_edit_manufacturer()" class="button" type="button">保存修改</button>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" defer="defer">
+		function save_edit_manufacturer() {
+            var item_num = document.getElementById("item_num").value;
+			var trade_name = document.getElementById("trade_name").value;
+			var attribute = document.getElementById("attribute").value;
+			var production_data = document.getElementById("production_data").value;
+			var number = document.getElementById("number").value;
+			var trade_price = document.getElementById("trade_price").value;
+			var commodity_status = document.getElementById("commodity_status").value;
+			var manufacturer = document.getElementById("manufacturer").value;
+			var production_address = document.getElementById("production_address").value;
+			var manufacturer_email = document.getElementById("manufacturer_email").value;
+			var expiration_data = document.getElementById("expiration_data").value;
+			if (trade_name == "") {
+				alert("请输入商品名称");
+				return false;
+			} else if (attribute == "") {
+				alert("请输入商品属性");
+				return false;
+			} else if (production_data == "") {
+				alert("请输入生产日期");
+				return false;
+			} else if (number == "") {
+				alert("请输入商品数量");
+				return false;
+			} else if (trade_price == "") {
+				alert("请输入商品价格");
+				return false;
+			} else if (commodity_status == "") {
+				alert("请输入商品状态");
+				return false;
+			} else if (manufacturer == "") {
+				alert("请输入生产厂家");
+				return false;
+			} else if (production_address == "") {
+				alert("请输入生产地址");
+				return false;
+			} else if (manufacturer_email == "") {
+				alert("请输入厂家邮箱");
+				return false;
+			} else if (expiration_data == "") {
+				alert("请输入保质期");
+				return false;
+			}
+			//ajax去服务器端校验
+			var data = [];
+			var goods = new Object();
+            goods.item_num = item_num;
+			goods.trade_name = trade_name;
+			goods.attribute = attribute;
+			goods.production_data = production_data;
+			goods.number = number;
+			goods.trade_price = trade_price;
+			goods.commodity_status = commodity_status;
+			goods.manufacturer = manufacturer;
+			goods.production_address = production_address;
+			goods.manufacturer_email = manufacturer_email;
+			goods.expiration_data = expiration_data;
+			data.push(goods);
+			data = JSON.stringify(data)
+			$.ajax({
+				type: "POST",
+				url: "/save_edit_manufacturer",
+				data: data,
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				success: function (msg) {
+					if (msg["success"] == 0) {
+						alert("修改成功")
+						window.location.href = "/manufacturer";
+					} else {
+						alert("登录失败，请重试!");
+					}
+				},
+				error: function () {
+					alert("ajax发送失败");
+				}
+			});
+		};
+	</script>
+	<div class="footer" id="foot">
+		<div class="copyright">
+			<p>Copyright ? 2018 Qunar.com Inc. All Rights Reserved.</p>
+			<div class="img">
+				<i class="icon"></i><span>联系邮箱：607607607@163.com</span>
+			</div>
+
+			<div class="img">
+				<i class="icon1"></i><span>联系地址：太原理工大学</span>
+			</div>
+
+			<div class="img">
+				<i class="icon2"></i><span>联系电话：1234567890</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
